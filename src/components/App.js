@@ -1,5 +1,5 @@
 import react, {useState, useEffect} from 'react';
-import {BrowserRouter as Router,Switch, Route } from 'react-router-dom';
+import {BrowserRouter as Router,Switch,  Route, } from 'react-router-dom';
 import './App.css';
 import Header from './Header';
 import AddContact from './AddContact';
@@ -36,18 +36,22 @@ import ContactList from './ContactList';
     <div className='ui container'>
      <Router>
       <Header />
-        <Switch>
-         <Route path="/add" component={AddContact} />
-         <Route path="/" component={ContactList} />
-        </Switch>
+        <Switch>         
+        <Route path="/" exact render={(props)=><ContactList {...props} Contacts={Contacts} getContactId={removeHandler}/>} />
+         <Route path="/add" render= {(props)=><AddContact  {...props}  addContactHandler={addContactHandler} />} />         
+        </Switch> 
     </Router>    
 
-     {/* <AddContact addContactHandler={addContactHandler}/> */}
-     {/* <ContactList Contacts={Contacts} getContactId={removeHandler}/> */}
-    
     </div>
   );
 }
 
 
+    //  {/* <AddContact addContactHandler={addContactHandler}/> */}
+    //  {/* <ContactList Contacts={Contacts} getContactId={removeHandler}/> */}
+    
+
+    // {/* ///component approcfa-flip-horizontal  */}
+    // {/* <Route path="/" exact component={()=><ContactList Contacts={Contacts} getContactId={removeHandler}/>} />
+    //      <Route path="/add" component= {()=><AddContact addContactHandler={addContactHandler} />} /> */}
 export default App;
