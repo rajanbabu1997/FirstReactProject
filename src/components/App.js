@@ -1,4 +1,4 @@
-import react, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {BrowserRouter as Router,Switch,  Route, } from 'react-router-dom';
 import './App.css';
 import Header from './Header';
@@ -13,9 +13,9 @@ import ContactList from './ContactList';
   const generateKey = (pre) => {
     return `${ pre }_${ new Date().getTime() }`;
 }
-  const addContactHandler=(contact)=>{
+  const addContactHandler= (contact) =>{
     console.log(contact)
-    setContacts([...Contacts, {id:generateKey(contact. name),...contact}]);
+    setContacts([...Contacts, {id : generateKey(contact. name), ...contact}]);
   }
   useEffect(()=>{
     const retrieveItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) 

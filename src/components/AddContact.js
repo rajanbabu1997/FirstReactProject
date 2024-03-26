@@ -7,7 +7,7 @@ class AddContact extends React.Component {
     };
     add=(e)=>{
         e.preventDefault();
-        if(this.state.email==="" && this.state.name==""){
+        if(this.state.email === "" && this.state.name === ""){
             alert("All field are mandatory");
             return false;
         }
